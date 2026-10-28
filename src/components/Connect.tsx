@@ -24,8 +24,7 @@ export function Connect() {
           <div id="nieuwsbrief" className="relative h-full overflow-hidden rounded-[2rem] bg-ink p-8 text-paper md:p-12">
             <Ripples rings={5} className="pointer-events-none absolute -right-48 -top-48 w-[520px] text-flame/25" />
             <div className="relative">
-              <p className="eyebrow !text-amber">Nieuwsbrief</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight md:text-5xl">Blijf op de hoogte</h2>
+              <h2 className="font-display text-4xl leading-tight md:text-5xl">Blijf op de hoogte</h2>
               <p className="mt-4 max-w-md leading-relaxed text-paper/65">
                 Wil je weten wat er speelt in de gemeente? Schrijf je in voor de digitale nieuwsbrief.
               </p>

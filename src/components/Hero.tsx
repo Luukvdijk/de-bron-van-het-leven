@@ -14,11 +14,8 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-5 pb-24 pt-8 md:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-10 lg:pb-32 lg:pt-14">
         <div>
-          <p className="eyebrow rise" style={delay(0)}>
-            {hero.eyebrow}
-          </p>
           <h1
-            className="rise mt-6 font-display text-[clamp(3.1rem,7.4vw,6.6rem)] font-[350] leading-[0.95] tracking-[-0.03em]"
+            className="rise font-display text-[clamp(3.1rem,7.4vw,6.6rem)] font-[350] leading-[0.95] tracking-[-0.03em]"
             style={delay(120)}
           >
             Kom, en vier het{" "}

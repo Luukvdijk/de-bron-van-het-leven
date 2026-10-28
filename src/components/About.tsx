@@ -9,10 +9,7 @@ export function About() {
       <Ripples rings={5} className="pointer-events-none absolute -right-60 -top-60 w-[720px] text-flame/20" />
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="eyebrow">Over ons</p>
-        </Reveal>
-        <Reveal delay={100}>
-          <p className="mt-8 max-w-5xl font-display text-[clamp(1.95rem,4.3vw,3.7rem)] font-[350] leading-[1.1] tracking-[-0.02em]">
+          <p className="max-w-5xl font-display text-[clamp(1.95rem,4.3vw,3.7rem)] font-[350] leading-[1.1] tracking-[-0.02em]">
             {about.statementStart} <em className="text-flame-deep">{about.statementAccent}</em> {about.statementEnd}
           </p>
         </Reveal>

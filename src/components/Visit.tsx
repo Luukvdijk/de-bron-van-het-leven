@@ -9,7 +9,6 @@ export function Visit() {
       <div className="mx-auto grid max-w-7xl gap-14 px-5 md:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-24">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            <p className="eyebrow">Nieuw bij De Bron?</p>
             <h2 className="h2">
               Zo ziet je eerste <em className="text-flame-deep">zondag</em> eruit.
             </h2>

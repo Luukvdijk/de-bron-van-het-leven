@@ -8,7 +8,6 @@ export function Gallery() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow">Fotogalerij</p>
             <h2 className="h2">
               Een kijkje bij <em className="text-flame-deep">De Bron</em>
             </h2>

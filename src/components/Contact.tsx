@@ -17,8 +17,7 @@ export function Contact() {
           <div className="relative overflow-hidden rounded-[2.5rem] border border-ink/10 bg-white/50 px-7 py-14 md:px-14 md:py-20">
             <Ripples className="pointer-events-none absolute -bottom-[26rem] -right-[18rem] w-[900px] text-flame/25" />
             <div className="relative">
-              <p className="eyebrow">Contact</p>
-              <h2 className="mt-5 font-display text-[clamp(3.4rem,10vw,8rem)] font-[350] leading-[0.9] tracking-[-0.03em]">
+              <h2 className="font-display text-[clamp(3.4rem,10vw,8rem)] font-[350] leading-[0.9] tracking-[-0.03em]">
                 Tot <em className="text-flame-deep">zondag!</em>
               </h2>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">

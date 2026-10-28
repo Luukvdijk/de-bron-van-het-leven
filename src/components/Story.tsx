@@ -8,7 +8,6 @@ export function Story() {
       <div className="mx-auto grid max-w-7xl gap-16 px-5 md:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            <p className="eyebrow">Ons verhaal</p>
             <h2 className="h2">
               De geboorte van een <em className="text-flame-deep">gemeente</em>
             </h2>

@@ -15,7 +15,6 @@ export function Agenda() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <Reveal>
-            <p className="eyebrow">Prikbord</p>
             <h2 className="h2">
               Binnenkort bij <em className="text-flame-deep">De Bron</em>
             </h2>

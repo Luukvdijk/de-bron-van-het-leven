@@ -66,9 +66,8 @@ export const gallery = [
 ];
 
 export const hero = {
-  eyebrow: "Apostolisch-profetische gemeente in Almere",
   intro:
-    "Een plek van aanbidding, herstel en verbondenheid. Elke zondag om 10:00 uur zijn jij en je gezin van harte welkom.",
+    "Een plek van aanbidding, herstel en verbondenheid in Almere. Elke zondag om 10:00 uur zijn jij en je gezin van harte welkom.",
 };
 
 export const visit = {

@@ -52,25 +52,7 @@ body::after {
 
 /* In the components layer so utilities (hidden, mt-*, text-*) can still override them */
 @layer components {
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-flame-deep);
-  }
-  .eyebrow::before {
-    content: "";
-    width: 1.75rem;
-    height: 1.5px;
-    background: currentColor;
-  }
-
   .h2 {
-    margin-top: 1rem;
     font-family: var(--font-display);
     font-optical-sizing: auto;
     font-variation-settings: "SOFT" 60;

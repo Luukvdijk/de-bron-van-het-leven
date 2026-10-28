@@ -15,8 +15,7 @@ export function Testimonials() {
     <section id="getuigenissen" className="relative overflow-hidden bg-flame-deep py-24 text-white md:py-36">
       <Ripples className="pointer-events-none absolute -right-[22rem] top-1/2 w-[900px] -translate-y-1/2 text-white/15" />
       <div className="relative mx-auto max-w-5xl px-5 md:px-8">
-        <p className="eyebrow !text-white/85">Getuigenissen</p>
-        <span aria-hidden className="mt-6 block font-display text-[7rem] leading-[0.6] text-white/30">
+        <span aria-hidden className="block font-display text-[7rem] leading-[0.6] text-white/30">
           “
         </span>
         <figure key={index} className="fade-swap min-h-[16rem] md:min-h-[14rem]">

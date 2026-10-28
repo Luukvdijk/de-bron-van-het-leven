@@ -9,7 +9,6 @@ export function Gatherings() {
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:items-end">
           <Reveal>
-            <p className="eyebrow !text-amber">Samenkomsten</p>
             <h2 className="h2">
               Samen aanbidden, leren en <em className="text-flame">groeien</em>.
             </h2>
