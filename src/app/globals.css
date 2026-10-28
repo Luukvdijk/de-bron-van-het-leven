@@ -1,19 +1,29 @@
 @import "tailwindcss";
 
+/* Built on the church's own colours: black, white and their orange (#f5571c to amber) */
 @theme {
-  --color-paper: #fbf6ef;
-  --color-sand: #f3e8d9;
-  --color-sand-deep: #e7d5bd;
-  --color-ink: #1d1612;
-  --color-ink-soft: #5a4d44;
-  --color-night: #150e0b;
+  --color-white: #ffffff;
+  --color-stone: #efefef;
+  --color-stone-light: #f7f7f7;
+  --color-stone-dark: #d2d2d4;
+  --color-stone-deep: #98989c;
+  --color-lead: #17171a;
+  --color-ink: #202020;
+  --color-ink-soft: #56565b;
+  --color-night: #0e0e10;
+  --color-night-light: #1a1a1e;
   --color-flame: #f5571c;
-  --color-flame-strong: #d4440d;
   --color-flame-deep: #c4410e;
-  --color-amber: #ffb547;
+  --color-amber: #ffad1f;
+  --color-ember: #b3260f;
+  --color-cobalt: #1d3f8f;
+  --color-cobalt-deep: #12275c;
+  --color-sky: #3b7bd1;
+  --color-clear: #e6ecf0;
 
-  --font-display: var(--font-fraunces), Georgia, serif;
-  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-serif: var(--font-garamond), Georgia, serif;
+  --font-inscription: var(--font-cinzel), Georgia, serif;
 }
 
 html {
@@ -22,22 +32,12 @@ html {
 }
 
 body {
-  background: var(--color-paper);
+  background: var(--color-white);
   color: var(--color-ink);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Soft paper grain over everything */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
@@ -45,21 +45,13 @@ body::after {
   color: #fff;
 }
 
-.font-display {
-  font-optical-sizing: auto;
-  font-variation-settings: "SOFT" 60;
-}
-
-/* In the components layer so utilities (hidden, mt-*, text-*) can still override them */
 @layer components {
   .h2 {
     font-family: var(--font-display);
-    font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 60;
-    font-size: clamp(2.4rem, 5vw, 4.25rem);
-    font-weight: 400;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
   }
   .h2 em {
     font-style: italic;
@@ -69,10 +61,11 @@ body::after {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    border-radius: 999px;
-    padding: 0.95rem 1.6rem;
-    font-size: 0.95rem;
-    font-weight: 600;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
     transition:
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       background-color 0.3s,
@@ -83,20 +76,83 @@ body::after {
     transform: translateY(-2px);
   }
   .btn-primary {
-    background: var(--color-flame-strong);
+    background: var(--color-flame-deep);
     color: #fff;
-    box-shadow: 0 12px 30px -12px rgb(212 68 13 / 0.7);
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.3),
+      0 12px 26px -14px rgb(196 65 14 / 0.8);
   }
   .btn-primary:hover {
-    background: var(--color-flame-deep);
+    background: var(--color-ember);
   }
   .btn-ghost {
     color: var(--color-ink);
-    box-shadow: inset 0 0 0 1.5px rgb(29 22 18 / 0.18);
+    box-shadow: inset 0 0 0 1px rgb(32 32 32 / 0.35);
   }
   .btn-ghost:hover {
-    box-shadow: inset 0 0 0 1.5px var(--color-ink);
+    box-shadow: inset 0 0 0 1px var(--color-ink);
   }
+}
+
+/* Coursed stone wall, very faint */
+.ashlar {
+  background-color: var(--color-white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='120'%3E%3Cpath d='M0 .5H180M0 60.5H180M.5 0V60M90.5 60V120' fill='none' stroke='%2317171a' stroke-opacity='0.07'/%3E%3C/svg%3E");
+}
+
+/* Letters cut into stone */
+.carved {
+  color: #7d7d82;
+  text-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9),
+    0 -1px 0 rgb(0 0 0 / 0.18);
+}
+
+.smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+/* Illuminated initial */
+.dropcap {
+  float: left;
+  margin: 0.1em 0.2em 0 0;
+  padding: 0.08em 0.18em 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.55em;
+  line-height: 0.92;
+  color: #fff;
+  background: var(--color-flame-deep);
+  box-shadow:
+    inset 0 0 0 3px var(--color-flame-deep),
+    inset 0 0 0 4px var(--color-amber);
+}
+
+/* Fluted stone shaft for <Column> */
+.column-shaft {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 5px, rgb(0 0 0 / 0.1) 5px 6px),
+    linear-gradient(90deg, #9a9a9e, #f7f7f7 35%, #dedee0 65%, #8e8e92);
+  box-shadow: inset 0 0 0 0.75px #98989c;
+}
+
+/* Coloured light falling on the wall from the windows */
+.light-pool {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  mix-blend-mode: multiply;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  to {
+    transform: translate(40px, -30px) scale(1.15);
+  }
+}
+
+.glow {
+  filter: drop-shadow(0 0 40px rgb(255 173 31 / 0.35));
 }
 
 /* Page-load entrance, staggered with --d */
@@ -130,48 +186,6 @@ body::after {
   transform: none;
 }
 
-/* Hand-drawn underline in the hero */
-.swash path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw 1.3s 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Rings that keep flowing outward, like water from a spring */
-.ripples circle:not(:last-child) {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: ripple 14s linear infinite;
-  animation-delay: calc(var(--i) * -14s / var(--n));
-}
-@keyframes ripple {
-  from {
-    transform: scale(0.04);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  to {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
-.marquee {
-  animation: marquee 45s linear infinite;
-}
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 .fade-swap {
   animation: fade-swap 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -194,16 +208,7 @@ body::after {
     transform: none;
     transition: none;
   }
-  .swash path {
+  .light-pool {
     animation: none;
-    stroke-dashoffset: 0;
-  }
-  .marquee {
-    animation: none;
-  }
-  .ripples circle:not(:last-child) {
-    animation: none;
-    transform: scale(calc((var(--i) + 1) / var(--n)));
-    opacity: 0.6;
   }
 }

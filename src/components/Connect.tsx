@@ -2,12 +2,15 @@
 
 import { useState, type FormEvent } from "react";
 import { site } from "@/content";
+import { RoseWindow } from "./Glass";
 import { ArrowIcon, HeartIcon } from "./Icons";
 import { Reveal } from "./Reveal";
-import { Ripples } from "./Ripples";
 
 const field =
-  "w-full rounded-full border border-paper/20 bg-paper/[0.07] px-5 py-3.5 text-paper placeholder:text-paper/45 outline-none transition-colors focus:border-flame focus:bg-paper/10";
+  "w-full border border-white/25 bg-white/[0.06] px-4 py-3 text-white placeholder:text-white/45 outline-none transition-colors focus:border-amber";
+
+// Both cards get a shallow arched top, like a church tablet.
+const archTop = "[border-top-left-radius:50%_3.5rem] [border-top-right-radius:50%_3.5rem]";
 
 export function Connect() {
   const [sent, setSent] = useState(false);
@@ -18,22 +21,22 @@ export function Connect() {
   };
 
   return (
-    <section className="py-24 md:py-36">
-      <div className="mx-auto grid max-w-7xl gap-5 px-5 md:px-8 lg:grid-cols-2">
+    <section className="bg-white py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl gap-6 px-5 md:px-8 lg:grid-cols-2">
         <Reveal className="h-full">
-          <div id="nieuwsbrief" className="relative h-full overflow-hidden rounded-[2rem] bg-ink p-8 text-paper md:p-12">
-            <Ripples rings={5} className="pointer-events-none absolute -right-48 -top-48 w-[520px] text-flame/25" />
-            <div className="relative">
-              <h2 className="font-display text-4xl leading-tight md:text-5xl">Blijf op de hoogte</h2>
-              <p className="mt-4 max-w-md leading-relaxed text-paper/65">
+          <div id="nieuwsbrief" className={`relative h-full overflow-hidden bg-night p-2 text-white ${archTop}`}>
+            <div className={`relative h-full border border-amber/40 px-7 pb-10 pt-16 md:px-12 ${archTop}`}>
+              <RoseWindow className="pointer-events-none absolute -right-24 -top-24 w-64 opacity-25" />
+              <h2 className="relative font-display text-[2.6rem] font-medium leading-tight md:text-5xl">Blijf op de hoogte</h2>
+              <p className="relative mt-3 max-w-md leading-relaxed text-white/70">
                 Wil je weten wat er speelt in de gemeente? Schrijf je in voor de digitale nieuwsbrief.
               </p>
               {sent ? (
-                <p className="fade-swap mt-10 rounded-2xl border border-flame/40 bg-flame/10 p-5 leading-relaxed text-paper/90">
+                <p className="fade-swap relative mt-10 border border-amber/40 bg-amber/10 p-5 leading-relaxed">
                   Dank je wel voor je inschrijving! In dit concept wordt nog niets verstuurd.
                 </p>
               ) : (
-                <form onSubmit={onSubmit} className="mt-10 grid gap-3 sm:grid-cols-2">
+                <form onSubmit={onSubmit} className="relative mt-10 grid gap-3 sm:grid-cols-2">
                   <label className="sr-only" htmlFor="voornaam">
                     Voornaam
                   </label>
@@ -64,31 +67,31 @@ export function Connect() {
         </Reveal>
 
         <Reveal delay={120} className="h-full">
-          <div id="geven" className="flex h-full flex-col rounded-[2rem] bg-sand p-8 md:p-12">
-            <span className="grid h-14 w-14 place-items-center rounded-full bg-paper text-flame-deep">
-              <HeartIcon className="h-6 w-6" />
-            </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">Geven aan De Bron</h2>
-            <p className="mt-4 max-w-md leading-relaxed text-ink-soft">
-              Met je gift help je mee aan het werk van de gemeente, in Almere en daarbuiten. De Bron is een ANBI:
-              giften zijn onder voorwaarden aftrekbaar van de belasting.
-            </p>
-            <dl className="mt-8 grid gap-x-6 gap-y-3 border-t border-ink/10 pt-6 text-sm sm:grid-cols-[auto_1fr]">
-              <dt className="text-ink-soft">Officiële naam</dt>
-              <dd className="font-medium">{site.legalName}</dd>
-              <dt className="text-ink-soft">KvK-nummer</dt>
-              <dd className="font-medium tabular-nums">{site.kvk}</dd>
-              <dt className="text-ink-soft">RSIN</dt>
-              <dd className="font-medium tabular-nums">{site.rsin}</dd>
-            </dl>
-            <div className="mt-auto pt-10">
-              <a href="#contact" className="btn btn-primary">
-                Doneren
-                <ArrowIcon className="h-4 w-4" />
-              </a>
-              <p className="mt-4 text-sm text-ink-soft">
-                In de echte site koppelen we hier jullie donatiemogelijkheid, bijvoorbeeld direct met iDEAL.
+          <div id="geven" className={`h-full bg-stone p-2 ${archTop}`}>
+            <div className={`flex h-full flex-col border border-stone-deep/60 px-7 pb-10 pt-16 md:px-12 ${archTop}`}>
+              <HeartIcon className="h-8 w-8 text-flame-deep" />
+              <h2 className="mt-4 font-display text-[2.6rem] font-medium leading-tight md:text-5xl">Geven aan De Bron</h2>
+              <p className="mt-3 max-w-md leading-relaxed text-ink-soft">
+                Met je gift help je mee aan het werk van de gemeente, in Almere en daarbuiten. De Bron is een ANBI: giften
+                zijn onder voorwaarden aftrekbaar van de belasting.
               </p>
+              <dl className="mt-8 grid gap-x-6 gap-y-2 border-t border-stone-deep/50 pt-6 text-[1rem] sm:grid-cols-[auto_1fr]">
+                <dt className="text-ink-soft">Officiële naam</dt>
+                <dd>{site.legalName}</dd>
+                <dt className="text-ink-soft">KvK-nummer</dt>
+                <dd className="tabular-nums">{site.kvk}</dd>
+                <dt className="text-ink-soft">RSIN</dt>
+                <dd className="tabular-nums">{site.rsin}</dd>
+              </dl>
+              <div className="mt-auto pt-10">
+                <a href="#contact" className="btn btn-primary">
+                  Doneren
+                  <ArrowIcon className="h-4 w-4" />
+                </a>
+                <p className="mt-4 text-[1rem] text-ink-soft">
+                  In de echte site koppelen we hier jullie donatiemogelijkheid, bijvoorbeeld direct met iDEAL.
+                </p>
+              </div>
             </div>
           </div>
         </Reveal>

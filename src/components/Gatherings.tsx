@@ -1,67 +1,75 @@
+import { Fragment } from "react";
 import { gatheringGroups, gatherings } from "@/content";
+import { Column } from "./Column";
+import { Ornament, RoseWindow } from "./Glass";
 import { Reveal } from "./Reveal";
-import { Ripples } from "./Ripples";
 
+// A portico: pediment with a rose window, the title carved in the frieze, columns between the groups.
 export function Gatherings() {
   return (
-    <section id="samenkomsten" className="relative overflow-hidden bg-night py-24 text-paper md:py-36">
-      <Ripples className="pointer-events-none absolute -bottom-[30rem] -left-[20rem] w-[1100px] text-flame/20" />
-      <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:items-end">
-          <Reveal>
-            <h2 className="h2">
-              Samen aanbidden, leren en <em className="text-flame">groeien</em>.
+    <section id="samenkomsten" className="overflow-hidden bg-stone py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <Reveal>
+          <div className="relative hidden md:block">
+            <svg viewBox="0 0 1000 130" preserveAspectRatio="none" className="block w-full" aria-hidden>
+              <path d="M0 130L500 4L1000 130Z" fill="var(--color-stone-light)" stroke="var(--color-stone-deep)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              <path d="M70 120L500 20L930 120Z" fill="none" stroke="var(--color-stone-dark)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+            </svg>
+            <RoseWindow className="absolute left-1/2 top-[60%] w-20 -translate-x-1/2 -translate-y-1/2" />
+          </div>
+          <div className="border-y-[1.5px] border-stone-deep bg-stone-light px-4 py-5 text-center">
+            <h2 className="carved font-inscription text-[clamp(1.45rem,4.4vw,3.4rem)] font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]">
+              Samenkomsten
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/65">
-              Als gelovigen zich kunnen vinden in de visie van de gemeente, zullen ze met blijdschap actief deelnemen
-              aan de gemeenschap van Jezus Christus.
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <figure className="border-l-2 border-flame pl-6">
-              <blockquote className="font-display text-2xl font-light italic leading-snug md:text-3xl">
-                “Indien openbaring ontbreekt, verwildert het volk.”
-              </blockquote>
-              <figcaption className="mt-3 text-sm tracking-wide text-paper/55">Spreuken 29:18a</figcaption>
-            </figure>
-          </Reveal>
-        </div>
+          </div>
+          <div className="h-3 border-b-[1.5px] border-stone-deep bg-stone-dark/70" />
+        </Reveal>
 
-        <div className="mt-16 grid gap-14 md:mt-20 md:grid-cols-3 md:gap-10">
+        <Reveal className="mx-auto mt-12 max-w-2xl text-center">
+          <blockquote className="font-display text-[1.75rem] italic leading-snug md:text-3xl">
+            “Indien openbaring ontbreekt, verwildert het volk.”
+          </blockquote>
+          <p className="mt-2 smallcaps text-ink-soft">Spreuken 29:18a</p>
+          <p className="mt-6 leading-relaxed text-ink-soft">
+            Als gelovigen zich kunnen vinden in de visie van de gemeente, zullen ze met blijdschap actief deelnemen aan
+            de gemeenschap van Jezus Christus.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 flex flex-col gap-14 md:flex-row md:items-stretch md:gap-0">
+          <Column className="hidden w-14 shrink-0 md:flex" />
           {gatheringGroups.map((group, gi) => {
             const items = gatherings.filter((g) => g.group === group.id);
             return (
-              <Reveal key={group.id} delay={gi * 120}>
-                <h3 className="flex items-baseline justify-between border-b border-paper/20 pb-4 text-xs font-bold uppercase tracking-[0.2em] text-amber">
-                  {group.label}
-                  <span className="font-display text-base normal-case tracking-normal text-paper/40">
-                    {String(items.length).padStart(2, "0")}
-                  </span>
-                </h3>
-                <ul>
-                  {items.map((item) => (
-                    <li key={item.id} className="group border-b border-paper/10 py-7">
-                      <div className="flex items-start justify-between gap-4">
-                        <h4 className="font-display text-[1.7rem] leading-tight transition-colors group-hover:text-flame">
-                          {item.title}
-                        </h4>
+              <Fragment key={group.id}>
+                <Reveal delay={gi * 120} className="flex-1 md:px-8 md:py-4">
+                  <h3 className="text-center font-display text-3xl italic text-flame-deep">{group.label}</h3>
+                  <Ornament className="mt-3" />
+                  <ul className="mt-6 space-y-7">
+                    {items.map((item) => (
+                      <li key={item.id} className="text-center">
+                        <h4 className="font-display text-[1.65rem] font-semibold leading-tight">{item.title}</h4>
+                        <p className="mt-1 smallcaps text-[1.02rem] text-flame-deep">
+                          {item.when}
+                          {item.time && `, ${item.time}`}
+                        </p>
                         {item.audience && (
-                          <span className="mt-1 shrink-0 rounded-full border border-paper/25 px-2.5 py-1 text-[0.7rem] font-medium text-paper/80">
-                            {item.audience}
-                          </span>
+                          <p className="mt-2 inline-block border border-ink/25 px-2.5 py-0.5 text-sm text-ink-soft">{item.audience}</p>
                         )}
-                      </div>
-                      <p className="mt-2 text-sm font-semibold text-flame">
-                        {item.when}
-                        {item.time && `, ${item.time}`}
-                      </p>
-                      <p className="mt-2 text-[0.95rem] leading-relaxed text-paper/60">{item.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
+                        <p className="mx-auto mt-2 max-w-xs text-[1.02rem] leading-relaxed text-ink-soft">{item.description}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+                <Column className="hidden w-14 shrink-0 md:flex" />
+              </Fragment>
             );
           })}
+        </div>
+        <div className="hidden md:block" aria-hidden>
+          <div className="h-3 border-y-[1.5px] border-stone-deep bg-stone-light" />
+          <div className="-mx-4 h-3 border-b-[1.5px] border-stone-deep bg-stone-dark/70" />
+          <div className="-mx-8 h-3 border-b-[1.5px] border-stone-deep bg-stone-light" />
         </div>
       </div>
     </section>

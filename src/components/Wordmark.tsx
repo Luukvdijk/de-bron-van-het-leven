@@ -1,18 +1,16 @@
-import { RippleMark } from "./Ripples";
+import { RoseWindow } from "./Glass";
 
 // Follows the stacked shape of the church's own logo: DE BRON / van het levende / WOORD.
 export function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
   return (
     <span className="flex items-center gap-3">
-      <RippleMark className="h-9 w-9 text-flame" />
-      <span
-        className={`flex flex-col font-sans font-extrabold uppercase leading-[0.95] ${
-          tone === "dark" ? "text-ink" : "text-paper"
-        }`}
-      >
-        <span className="text-[1.05rem] tracking-[0.02em]">De Bron</span>
-        <span className="my-[2px] text-[0.55rem] tracking-[0.19em] text-flame">van het levende</span>
-        <span className="text-[1.05rem] tracking-[0.02em]">Woord</span>
+      <RoseWindow className="h-11 w-11 shrink-0" />
+      <span className={`flex flex-col leading-none ${tone === "dark" ? "text-ink" : "text-white"}`}>
+        <span className="font-inscription text-[1.02rem] font-bold uppercase tracking-[0.08em]">De Bron</span>
+        <span className={`font-display text-[0.88rem] italic ${tone === "dark" ? "text-flame-deep" : "text-amber"}`}>
+          van het Levende
+        </span>
+        <span className="font-inscription text-[1.02rem] font-bold uppercase tracking-[0.08em]">Woord</span>
       </span>
     </span>
   );

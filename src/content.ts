@@ -56,13 +56,13 @@ export const photos = {
 };
 
 export const gallery = [
-  { src: `${uploads}/2023/04/4-1024x682.jpg`, alt: "Aanbidding met een rode vlag", span: "col-span-2 row-span-2" },
-  { src: `${uploads}/2023/04/13-1024x682.jpg`, alt: "Kinderen dansen voorin de zaal", span: "" },
-  { src: `${uploads}/2023/04/6-1024x683.jpg`, alt: "Dansers en een sjofar", span: "row-span-2" },
-  { src: `${uploads}/2019/05/IMG_0002-1024x683.jpg`, alt: "De band op het podium", span: "" },
-  { src: `${uploads}/2023/04/10-1024x682.jpg`, alt: "Feestelijk gedekte tafels", span: "col-span-2" },
-  { src: `${uploads}/2023/04/5-1024x682.jpg`, alt: "Een groep met hun certificaat", span: "" },
-  { src: `${uploads}/2023/04/12-1024x682.jpg`, alt: "Jongeren dansen samen", span: "" },
+  { src: `${uploads}/2023/04/4-1024x682.jpg`, alt: "Aanbidding met een rode vlag" },
+  { src: `${uploads}/2023/04/13-1024x682.jpg`, alt: "Kinderen dansen voorin de zaal" },
+  { src: `${uploads}/2023/04/6-1024x683.jpg`, alt: "Dansers en een sjofar" },
+  { src: `${uploads}/2019/05/IMG_0002-1024x683.jpg`, alt: "De band op het podium" },
+  { src: `${uploads}/2023/04/10-1024x682.jpg`, alt: "Feestelijk gedekte tafels" },
+  { src: `${uploads}/2023/04/5-1024x682.jpg`, alt: "Een groep met hun certificaat" },
+  { src: `${uploads}/2023/04/12-1024x682.jpg`, alt: "Jongeren dansen samen" },
 ];
 
 export const hero = {
@@ -276,4 +276,3 @@ export const testimonials = [
   },
 ];
 
-export const marqueeWords = ["Aanbidding", "Gebed", "Het Woord", "Profetie", "Herstel", "Gemeenschap", "Almere"];

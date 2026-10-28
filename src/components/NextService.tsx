@@ -9,6 +9,7 @@ import { ArrowUpRightIcon } from "./Icons";
 const service = gatherings.find((g) => g.id === "eredienst")!;
 const communion = gatherings.find((g) => g.id === "avondmaal")!;
 
+// Looks like a small engraved plaque by the church door.
 export function NextService({ className = "" }: { className?: string }) {
   const today = useToday();
   const next = today ? nextOccurrence(service.rule, today) : null;
@@ -16,32 +17,33 @@ export function NextService({ className = "" }: { className?: string }) {
 
   return (
     <div
-      className={`rise w-[17rem] rounded-3xl bg-white/95 p-5 shadow-[0_30px_60px_-25px_rgb(29_22_18/0.45)] ring-1 ring-ink/5 backdrop-blur ${className}`}
-      style={{ "--d": "700ms" } as CSSProperties}
+      className={`rise max-w-xl bg-night p-1.5 text-white shadow-[0_30px_60px_-25px_rgb(14_14_16/0.7)] ${className}`}
+      style={{ "--d": "600ms" } as CSSProperties}
     >
-      <p className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-ink-soft">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-flame opacity-60" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-flame" />
-        </span>
-        Eerstvolgende eredienst
-      </p>
-      <p className="mt-3 font-display text-[1.65rem] leading-tight">{next ? formatDay(next) : "Elke zondag"}</p>
-      <p className="mt-1 text-sm text-ink-soft">{service.time}</p>
-      {withCommunion && (
-        <p className="mt-3 inline-flex rounded-full bg-flame/10 px-3 py-1 text-xs font-semibold text-flame-deep">
-          Met Avondmaalviering
-        </p>
-      )}
-      <a
-        href={site.mapsUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="group mt-4 flex items-center justify-between border-t border-ink/10 pt-3 text-sm font-medium"
-      >
-        {site.street}, {site.city}
-        <ArrowUpRightIcon className="h-4 w-4 text-flame-deep transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-      </a>
+      <div className="grid gap-4 border border-amber/50 px-5 py-4 sm:grid-cols-[1fr_auto] sm:items-end">
+        <div>
+          <p className="font-inscription text-[0.72rem] tracking-[0.2em] text-amber">Eerstvolgende eredienst</p>
+          <p className="mt-1 font-display text-[1.8rem] font-medium leading-tight">{next ? formatDay(next) : "Elke zondag"}</p>
+          <p className="text-white/70">
+            {service.time}
+            {withCommunion && <span className="font-display text-lg italic text-amber">, met Avondmaalviering</span>}
+          </p>
+        </div>
+        <a
+          href={site.mapsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="group flex items-center gap-2 border-t border-amber/30 pt-3 text-[0.98rem] sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0"
+        >
+          <span>
+            {site.street}
+            <span className="sm:hidden">, </span>
+            <br className="max-sm:hidden" />
+            {site.city}
+          </span>
+          <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-flame transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </a>
+      </div>
     </div>
   );
 }

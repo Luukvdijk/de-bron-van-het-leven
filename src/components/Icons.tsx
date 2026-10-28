@@ -84,10 +84,4 @@ export const CloseIcon = (p: IconProps) => (
   </svg>
 );
 
-export const SparkIcon = (p: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
-    <path d="M12 2c.6 4.6 2.4 7.4 10 10-7.6 2.6-9.4 5.4-10 10-.6-4.6-2.4-7.4-10-10 7.6-2.6 9.4-5.4 10-10Z" />
-  </svg>
-);
-
 export const stepIcons = { music: MusicIcon, child: ChildIcon, cup: CupIcon, pin: PinIcon };
